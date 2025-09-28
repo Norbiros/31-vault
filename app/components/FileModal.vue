@@ -44,7 +44,7 @@ const title = computed(() => `[PLIK] ${props.fileName}`)
 
         <template v-else-if="props.type === 'doc'">
           <iframe
-            :src="`/files/${props.fileName}`"
+            :src="`/api/archive/${props.fileName}`"
             class="w-full h-[400px] border border-cyan-700 bg-black"
           />
         </template>
