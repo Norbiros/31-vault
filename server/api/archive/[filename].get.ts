@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
     }
 
     // Set headers
-    setHeader(event, 'Cache-Control', 'public, max-age=3600')
+    setHeader(event, 'Cache-Control', 'private, max-age=3600')
     setHeader(event, 'ETag', etag)
     setHeader(event, 'Content-Type', getMimeType(filename))
 
