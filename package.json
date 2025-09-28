@@ -1,0 +1,46 @@
+{
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "e2e:codegen": "playwright codegen http://localhost:3000",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@norbiros/nuxt-auto-form": "^0.5.0",
+    "@nuxt/image": "1.11.0",
+    "@nuxt/ui": "4.0.0",
+    "@nuxtjs/seo": "3.2.2",
+    "@vueuse/nuxt": "13.9.0",
+    "nuxt": "4.1.2",
+    "nuxt-open-fetch": "0.13.5"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "5.4.1",
+    "@compodium/nuxt": "0.1.0-beta.12",
+    "@iconify-json/mdi": "^1.2.3",
+    "@nuxt/devtools": "2.6.5",
+    "@nuxt/eslint": "1.9.0",
+    "@nuxt/test-utils": "3.19.2",
+    "@playwright/test": "1.55.1",
+    "@vue/test-utils": "2.4.6",
+    "eslint": "^9.36.0",
+    "eslint-plugin-format": "~1.0.2",
+    "happy-dom": "~18.0.1",
+    "playwright-core": "1.55.1",
+    "typescript": "^5.9.2",
+    "vitest": "3.2.4",
+    "vitest-fail-on-console": "0.10.1",
+    "vue-tsc": "3.0.8"
+  }
+}
