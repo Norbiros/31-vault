@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
     path: '/',
   })
 
-  return sendRedirect(event, '/')
+  return sendRedirect(event, `/?highlight=${filename}`)
 })
 
 // http://localhost:3000/api/verify?file=silly-billy-theme.webm&token=ULvT0SJFUKRbUEEO

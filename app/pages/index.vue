@@ -2,7 +2,11 @@
 import { computed } from 'vue'
 import FileModal from '~/components/FileModal.vue'
 
-const decryptionCode = useRoute().query.code
+const highlight = computed(() => useRoute().query.highlight)
+
+useHead({
+  title: 'Archiwum 31 | Jakub Starzyk 25/26',
+})
 
 interface FileEntry {
   name: string
@@ -47,10 +51,16 @@ const totalCount = computed(() =>
 )
 
 const isAllUnlocked = computed(() => unlockedCount.value === totalCount.value)
+
+function clickFile(fileName: string) {
+  if (fileName === highlight.value) {
+    useRouter().push({ query: {} })
+  }
+}
 </script>
 
 <template>
-  <div class="p-4 relative font-[VT323] bg-[#0a0a0a] text-[#00f8f8] overflow-x-hidden min-h-screen">
+  <div class="p-7 relative font-[VT323] bg-[#0a0a0a] text-[#00f8f8] overflow-x-hidden min-h-screen">
     <FileModal file-name="silly-billy-theme.webm" type="video" :unlocked="true" />
     <FileModal file-name="braun.png" type="img" :unlocked="true" />
 
@@ -69,11 +79,13 @@ const isAllUnlocked = computed(() => unlockedCount.value === totalCount.value)
           <h2 class="text-2xl mb-2 text-glow">
             [FOLDER] {{ folder.name }}
           </h2>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <File
               v-for="file in folder.files"
               :key="file.name"
               :file="file"
+              :highlight="highlight === file.name"
+              @click="clickFile(file.name)"
             />
           </div>
         </div>
